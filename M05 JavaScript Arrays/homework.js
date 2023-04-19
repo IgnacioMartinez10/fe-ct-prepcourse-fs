@@ -1,5 +1,7 @@
 /*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
 
+const { faL } = require("@fortawesome/free-solid-svg-icons");
+
 function devolverPrimerElemento(array) {
    // Retornar el primer elemento del arreglo recibido por parámetro.
    // Tu código:
@@ -108,11 +110,30 @@ function multiplicarArgumentos() {
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
 
+   if (arguments.length === 0){
+      return 0;
+   }
+
+   if(arguments.length === 1 ){
+      return arguments[0]
+   }
+
+   let producto = 1;
+
+   for(let i = 0; i < arguments.length; i++){
+      producto *= arguments[i];
+   }
+
+   return producto;
+
 }
 
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
+
+   let numerosMayores = array.filter(num => num > 18);
+   return numerosMayores.length;
 }
 
 function diaDeLaSemana(numeroDeDia) {
@@ -120,18 +141,39 @@ function diaDeLaSemana(numeroDeDia) {
    // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
    // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
    // Tu código:
+
+   if(numeroDeDia === 1 || numeroDeDia === 7){
+      return 'Es fin de semana';
+   }else{
+      return 'Es dia laboral';
+   }
 }
 
 function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
+   let arrayNums = num.toString().split('');
+
+   if(arrayNums[0] == 9){
+      return true;
+   }
+   return false;
+
+
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
+   for(let i=0; i < array.length; i++){
+      if (array[0] == array[1]){
+         return true;
+      }else{
+         return false;
+      }
+   }
 }
 
 function mesesDelAño(array) {
@@ -139,18 +181,53 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+
+   let mesesEncontrados = []
+
+   for (let i=0; i<array.length; i++){
+      if (
+         array[i].includes('Enero') ||
+         array[i].includes('Marzo') ||  
+         array[i].includes('Noviembre')
+      ){
+         mesesEncontrados.push(array[i]);
+      }
+   }
+
+   if(mesesEncontrados.length === 3){
+      return mesesEncontrados;
+   }else{
+      return 'No se encontraron los meses pedidos';
+   }
+
 }
 
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   let tabla = [];
+
+   for (let i=0; i <= 10; i++){
+      numero = 6 * i;
+      tabla.push(numero);
+   }
+
+   return tabla;
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   let valoresMayores = [];
+   for(let i=0; i < array.length; i++){
+      if(array[i] > 100){
+         valoresMayores.push(array[i])
+      }
+   }
+   return valoresMayores;
+   
 }
 
 /* ----------------------------------------------------------------------------------
